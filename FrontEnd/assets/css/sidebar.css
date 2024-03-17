@@ -1,0 +1,63 @@
+body{
+    background-color: rgb(195, 251, 195);
+    
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    height: 100vh; /* Thiết lập chiều cao của .sidebar bằng 100% chiều cao của màn hình */
+    position: relative; /* Thêm thuộc tính này để phần .sidebar__list-bottom có thể căn chỉnh dựa trên .sidebar */
+    border: 1px solid rgb(245, 245, 179);
+
+}
+
+.sidebar__logo {
+    text-align: center;
+}
+.sidebar__logo:hover {
+    background-color: rgb(245, 245, 179);
+}
+
+.sidebar__logo-link {
+    display: inline-block; /* Đảm bảo kích thước của div là theo nội dung bên trong */
+}
+
+.sidebar__logo-img {
+    max-width: 100%; /* Hình ảnh sẽ không vượt quá kích thước của div */
+    height: auto; /* Đảm bảo tỉ lệ khung hình được bảo toàn */
+}
+.sidebar__list{
+    float: left;
+
+}
+.sidebar__list li:last-child {
+    border-bottom: 1px solid rgb(245, 245, 179);
+}
+  
+.sidebar__options{
+    height: 54px;
+    list-style-type: none;
+    border-top: 1px solid rgb(245, 245, 179);
+}
+.sidebar__options:hover .sidebar__options-link{
+    background-color: rgb(245, 245, 179);
+}
+.sidebar__options-link{
+    display: block;
+    line-height: 54px;
+    text-decoration: none;
+    padding-left: 10px;
+    font-size: 2rem;
+    color: var(--black-color);
+}
+.sidebar__options-content{
+    margin-left: 3px;
+}
+.sidebar__list-bottom{
+    position: fixed; /* Đảm bảo phần .sidebar__list-bottom được giữ nguyên vị trí khi cuộn */
+    bottom: 0; /* Đặt phần .sidebar__list-bottom ở phía dưới cùng của màn hình */
+    width: 100%; /* Chiều rộng của phần .sidebar__list-bottom bằng 100% */
+}
+
