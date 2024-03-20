@@ -11,13 +11,13 @@
 <body>
     <div class="sidebar">
         <div class="sidebar__logo">
-            <a href="" class="sidebar__logo-link">
+            <a href="../forms/ProductForm.php"  target="view" class="sidebar__logo-link">
                 <img src="../assets/img/logo.png" alt="" class="sidebar__logo-img">
             </a>
         </div>
         <ul class="sidebar__list">
             <li class="sidebar__options">
-                <a href="" class="sidebar__options-link">
+                <a href="../forms/ProductForm.php"  target="view" class="sidebar__options-link">
                     <i class="sidebar__options-icon fa-brands fa-dropbox"></i>
                     <span class="sidebar__options-content">Sản phẩm</span>
                 </a>
@@ -37,12 +37,19 @@
                 </a>
             </li>
             <li class="sidebar__options">
-                <a href="" class="sidebar__options-link">
+                <a href="" onclick="logoutAndRedirect()"  class="sidebar__options-link">
                     <i class="sidebar__options-icon fa-solid fa-arrow-right-from-bracket"></i>
                     <span class="sidebar__options-content">Đăng Xuất</span>
                 </a>
             </li>
         </footer>
     </div>
+
+    <script>
+        function logoutAndRedirect() {
+            var redirectUrl = '/PBL5_Fruit_identification/FrontEnd/forms/login.html';
+            window.top.location = redirectUrl;
+        }
+    </script>
 </body>
 </html>
