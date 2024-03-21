@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/productForm.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+</head>
+<body>
+
+<form action="/PBL5_Fruit_identification/BackEnd/Controller/C_StoreFruit.php" method="POST" enctype="multipart/form-data">
+    <?php
+     echo '<input type="hidden" name="ID" value="'.$updateProduct[0]->ID.'">';
+    ?>
+    
+    <div class="product__item col-four">
+        <input type="file" name="new_picture" id="fileInput">
+        <?php
+        echo '<img src="data:image;base64,'. base64_encode($updateProduct[0]->Picture) .'" alt="Image" id="previewImage" class="product__item-img">';
+        ?>
+        
+        <div class="product__item-content">
+            <h1 class="">
+                Tên sản phẩm: 
+                <?php
+                    echo '<span class="product__item-name">'. $updateProduct[0]->NameProduct .'</span>';
+                ?>  
+            </h1>
+            <h2>
+                Giá:
+                <?php
+                    echo '<input type="text" name="new_price" value="'.number_format($updateProduct[0]->Price, 0, ',', '.').'">';
+                    echo '/kg';
+                ?> 
+            </h2>
+            <div class="product__item-button">
+                <button type="submit" class="product__item-update" name="OK">Cập nhật</button>
+                <button type="submit" class="product__item-delete" name="Cancel">Hủy</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        document.getElementById('previewImage').src = e.target.result;
+    };
+    reader.readAsDataURL(file); 
+});
+</script>
+
+</body>
+</html>
