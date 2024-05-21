@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../FrontEnd/assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../FrontEnd/assets/css/DetailAccount.css">
+    <link rel="stylesheet" type="text/css" href="../../FrontEnd/assets/fonts/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/PBL5_Fruit_identification/BackEnd/Controller/C_StoreFruit.php" method="get">
+            <div class="account__item col-four"> 
+                <div>
+                    <h1>
+                        THÔNG TIN CÁ NHÂN
+                    </h1>
+                </div>
+                <div class="account__item-content">
+                    
+                   
+                    <h2 class="">Họ Và Tên:</h2>
+                    <?php
+                        echo '<input type="text" name="new_NameStaff" value="'. $DetailAccount[0]->FullName .'">';
+                    ?>  
+                    <h2>
+                        Email:
+                       
+                    </h2>
+                    <?php
+                        echo '<input type="text" value="'. $DetailAccount[0]->Email.'" readonly>';
+                    ?> 
+                    <h2>
+                        PassWord:
+                        
+                    </h2>
+                    <?php
+                        echo '<input type="text" name="new_PasswordStaff" value="'. $DetailAccount[0]->PassWord.'">';
+                    ?>
+                    
+                </div>
+                <div class="account__item-button">
+                    <button type="submit" class="account__item-update" name="OK_updateStaff">Cập nhật</button>
+                    <button type="submit" class="account__item-update" name="can_updateStaff">Hủy</button>
+                </div>
+            </div>
+    </form>
+    <!-- Trong file ../FrontEnd/forms/detailAccount.html -->
+
+
+</body>
+</html>

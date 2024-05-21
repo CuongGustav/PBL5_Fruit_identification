@@ -9,49 +9,55 @@
     <style>
         /* Thu nhỏ kích thước của tất cả các phần tử trong frame */
         body {
-            zoom: 88%; /* Thay đổi tỷ lệ zoom */
+            zoom: 95%; /* Thay đổi tỷ lệ zoom */
         }
     </style>
 </head>
 <body>
     <form action="/PBL5_Fruit_identification/BackEnd/Controller/C_StoreFruit.php" method="get">
         <div class="bill__item col-four">
-            <div class="bill__item-content">
-                <h1 class=""> Hóa Đơn </h1>
-                <h2 class="bill__item-id">Mã Hóa Đơn: <?php echo $see_detailbill[0]->ID_Bill; ?></h2>
-                <h2 class="bill__item-name">Tên Nhân Viên: <?php echo $see_detailbill[0]->Name_Staff; ?> </h2>
-                <h2 class="bill__item-date">Ngày: <?php echo $see_detailbill[0]->Date; ?> </h2>
+            <h1 class=""> Hóa Đơn </h1>
+            <div class="container">
+                <div class="bill__item-content">
+                    <h2 class="bill__item-id">Mã Hóa Đơn: <?php echo $see_detailbill[0]->ID_Bill; ?></h2>
+                    <h2 class="bill__item-name">Tên Nhân Viên: <?php echo $see_detailbill[0]->Name_Staff; ?> </h2>
+                    <h2 class="bill__item-date">Ngày: <?php echo $see_detailbill[0]->Date; ?> </h2>
+                    <h2 class="bill__item-total">Tổng: <?php echo number_format($see_detailbill[0]->Total, 0, ',', '.') . " VND"; ?></h2>
+                </div>
+                <div class="bill">
+                    <h1 class="">Danh Sách Sản Phẩm</h1>
+                    <div class="header-detail-one-product">
+                        <div class="product__details">
+                            <h2 class="product__item-name">Tên</h2>
+                            <h2 class="product__item-Weighed">Cân nặng</h2>
+                            <h2 class="product__item-price">Tiền</h2>
+                        </div>
+                    </div>
+                    <div class="bill__item-list-product" style="overflow: scroll;">
+                        <?php
+                            if (empty($listProduct_Shopping_Cart)) {
+                                echo '';
+                            } else {
+                                for($i = 1; $i <= sizeof($listProduct_Shopping_Cart); $i++){
+                        ?>
+                            <div class="detail-one-product">
+                                <h2 class="product__item-name"><?php echo $listProduct_Shopping_Cart[$i]->Name_Product; ?> </h2>
+                                <h2 class="product__item-Weighed"><?php echo $listProduct_Shopping_Cart[$i]->Weighed; ?> Kg</h2>
+                                <h2 class="product__item-price"><?php echo number_format($listProduct_Shopping_Cart[$i]->Total, 0, ',', '.') . " VND"; ?> </h2>
+                        
+                            </div>
+                        
+                        <?php
+                            }
+                            }
+                        ?>
+                    </div>       
+                </div>
                 
             </div>
-            <h1 class="">Danh Sách Sản Phẩm</h1>
-            <div class="header-detail-one-product">
-                <div class="product__details">
-                    <h2 class="product__item-name">Tên</h2>
-                    <h2 class="product__item-Weighed">Cân nặng</h2>
-                    <h2 class="product__item-price">Tiền</h2>
-                </div>
-            </div>
-            <div class="bill__item-list-product" style="overflow: scroll;">
-            <?php
-                if (empty($listProduct_Shopping_Cart)) {
-                    echo '';
-                } else {
-                    for($i = 1; $i <= sizeof($listProduct_Shopping_Cart); $i++){
-            ?>
-                <div class="detail-one-product">
-                    <h2 class="product__item-name"><?php echo $listProduct_Shopping_Cart[$i]->Name_Product; ?> </h2>
-                    <h2 class="product__item-Weighed"><?php echo $listProduct_Shopping_Cart[$i]->Weighed; ?> Kg</h2>
-                    <h2 class="product__item-price"><?php echo number_format($listProduct_Shopping_Cart[$i]->Total, 0, ',', '.') . " VND"; ?> </h2>
             
-                </div>
-            
-            <?php
-                   }
-                }
-            ?>
-        </div>       
             <div class="bill__item-content">
-                <h2 class="bill__item-total">Tổng: <?php echo number_format($see_detailbill[0]->Total, 0, ',', '.') . " VND"; ?></h2>
+               
                 <div class="bill__item-button">
                     <button type="submit" class="bill__item-see" name="inBill" value="<?php echo $see_detailbill[0]->ID_Bill; ?>">In Hóa Đơn</button>
                     <button type="submit" class="bill__item-see" name="cancelSeeBill" value="">Hủy</button>

@@ -162,6 +162,23 @@
             elseif(isset($_GET['statistics'])){
                 include_once('../../FrontEnd/forms/formStatistics.html');
             }
+            elseif(isset($_GET['updateupdateStaff'])){
+                $modelAccount =  new Model_StoreFruit();
+                $DetailAccount = $modelAccount->detail_account_Login_id($_GET['updateupdateStaff']);
+                $_SESSION['idStaff'] = $_GET['updateupdateStaff'];
+                include_once("../../FrontEnd/forms/formUpdateStaff.html");
+            }
+            elseif(isset($_GET['OK_updateStaff'])){
+                $modelAccount =  new Model_StoreFruit();
+                $updateAccount = $modelAccount->updateAccount($_SESSION['idStaff'], $_GET['new_NameStaff'], $_GET['new_PasswordStaff']);
+                $allStaff = $modelAccount->getAllAccount_Staff();
+                include_once("../../FrontEnd/forms/ListStaff.html");
+            }
+            elseif(isset($_GET['can_updateStaff'])){
+                $modelAccount = new Model_StoreFruit();
+                $allStaff = $modelAccount->getAllAccount_Staff();
+                include_once("../../FrontEnd/forms/ListStaff.html");
+            }
            
         }        
     }

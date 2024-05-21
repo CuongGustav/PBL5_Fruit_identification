@@ -24,7 +24,7 @@ if (empty($allStaff)) {
     <h2 class="staff__item-name">Họ Tên: <?php echo $allStaff[$i]->FullName; ?> </h2>
     <h2 class="staff__item-email">Email: <?php echo $allStaff[$i]->Email; ?> </h2>
     <div class="staff__item-button">
-        <!-- <button type="submit" class="staff__item-update" name="updateupdateStaff" value="<?php echo $allStaff[$i]->ID; ?>">Cập nhật</button> -->
+        <button type="submit" class="staff__item-update" name="updateupdateStaff" value="<?php echo $allStaff[$i]->ID; ?>">Cập nhật</button>
         <button type="submit" class="staff__item-delete" name="deldelStaff" value="<?php echo $allStaff[$i]->ID; ?>">Xóa</button>
     </div>
 </div>
