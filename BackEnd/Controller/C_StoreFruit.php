@@ -124,14 +124,18 @@
                     
                 }
                 $modelmodelBill =  new Model_StoreFruit();
-                $maxIDBill = $modelmodelBill->getMaxIDBill();
-                $ID_Bill =  $maxIDBill + 1;
-                $Name_Staff = $_SESSION['nameStaff'];
-                date_default_timezone_set('Asia/Ho_Chi_Minh'); // Đặt múi giờ cho Hồ Chí Minh
                 require('../Controller/requestServer.php');
-                $time = strtotime('now');
-                $DateTime = date("d-m-Y H:i:s", $time);
-                include_once("../../FrontEnd/forms/detailBill.html");
+                $see_detailbill = $modelmodelBill->detail_bill($_GET['idBill']);
+                $listProduct_Shopping_Cart = $modelmodelBill->getAllProduct_Shopping_Cart($_GET['idBill']);
+                include_once("../../BackEnd/PDF/generatePDF.php");
+                // $maxIDBill = $modelmodelBill->getMaxIDBill();
+                // $ID_Bill =  $maxIDBill + 1;
+                // $Name_Staff = $_SESSION['nameStaff'];
+                // date_default_timezone_set('Asia/Ho_Chi_Minh');
+                // require('../Controller/requestServer.php');
+                // $time = strtotime('now');
+                // $DateTime = date("d-m-Y H:i:s", $time);
+                // include_once("../../FrontEnd/forms/detailBill.html");
             }
             elseif(isset($_GET['seeBill'])){
                 $modelBill = new Model_StoreFruit();
@@ -156,14 +160,6 @@
                 include_once("../../BackEnd/PDF/generatePDF.php");
             }
             elseif(isset($_GET['statistics'])){
-                // date_default_timezone_set('Asia/Ho_Chi_Minh'); // Đặt múi giờ cho Hồ Chí Minh
-                // $time = strtotime('now');
-                // $Date= date("d-m-Y", $time);
-                // $modelstatistics = new Model_StoreFruit();
-                // $totalToday =  $modelstatistics->getAllTotalToday($Date);
-                // include_once('../../FrontEnd/forms/Today_Statistics.html');
-                // header('Location:  ../../FrontEnd/forms/Today_Statistics.html');
-                // $modelstatistics->getAllTotalToday($Date);
                 include_once('../../FrontEnd/forms/formStatistics.html');
             }
            

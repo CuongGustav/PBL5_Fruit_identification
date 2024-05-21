@@ -21,6 +21,9 @@
 
     $fruitsData = extractFruitData('https://server-1-c9nx.onrender.com/fruits/list_fruits');
     $fruitArray = array(
+        'bo' => 'Bơ',
+        'man' => 'Mận',
+        'mang cut' => 'Măng Cụt',
         'cachua' => 'Cà Chua',
         'cam' => 'Cam',
         'chuoi' => 'Chuối',

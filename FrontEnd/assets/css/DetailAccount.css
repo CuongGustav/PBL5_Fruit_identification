@@ -1,65 +1,64 @@
-body{
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
     background-color: rgb(195, 251, 195);
-    margin-top: 10%;
-    text-align: center;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-.col-four{
-    width: 30%; 
-}
-
-.clear{
-    clear: both;
-}
+/* Container for the account information */
 .account__item {
-    display: inline-block;
     background-color: #fff;
-    margin: 10px; 
-    width: calc(40% - 20px); 
     border-radius: 8px;
-    box-shadow: 2px 0 0 rgb(245, 245, 179);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* margin: 20px auto; */
+    max-width: 600px;
+    padding: 20px;
+    margin-left: auto; /* Đặt margin trái thành tự động */
+    margin-right: auto;
+
 }
-.account__item-button{
-    margin: 16px 70px;
-    
-  
-}
-.account__item-content{
-    padding: 30px;
-}
-h1{
-    font-size: 3rem;
-    font-weight: 600;
+
+/* Header */
+.account__item h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
     text-align: center;
-    margin-bottom: 40px;
 }
-h2{
-    margin-top: 16px;
-    margin-left: 40px;
-    font-size: 2rem;
-    font-weight: 500; 
-    text-align: left;
 
-    
+/* Labels */
+.account__item-content h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
 }
+
+/* Input fields */
 .account__item-content input[type="text"] {
-   margin: 10px;
-   font-size: 16px;
-   width: 250px; /* Chiều rộng mới */
-   height: 40px; /* Chiều cao mới */
-}
-
-.account__item-button button {
-    font-size: 2rem;
-    padding: 8px;
-    margin-right: 10px;
-    width: 100px;
-    cursor: pointer;
-    border: none;
-    background-color: rgb(195, 251, 195);
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-
+    font-size: 16px;
 }
-.account__item-button button:hover{
+
+/* Button styles */
+.account__item-button {
+    text-align: center;
+}
+
+.account__item-button .account__item-update {
+    background-color: rgb(195, 251, 195);
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.account__item-button .account__item-update:hover {
     background-color: rgb(245, 245, 179);
 }

@@ -10,10 +10,18 @@ body{
     clear: both;
 }
 
+.container {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center;
+    justify-content: center; */
+    gap: 20px;
+}
+
 .bill__item {
     display: inline-block;
     background-color: #fff;
-    width: calc(55% - 20px); /* width - margin */
+    width: calc(90% - 20px); /* width - margin */
     height: 700px;
     border-radius: 8px;
     box-shadow: 2px 0 0 rgb(245, 245, 179);
@@ -63,12 +71,25 @@ h2{
 }
 
 .bill__item-list-product {
+    max-width: 700px;
     overflow: auto; /* Kích hoạt thanh cuộn */
-    max-height: 130px; /* Đặt chiều cao tối đa để hiển thị thanh cuộn */
+    max-height: 300px; /* Đặt chiều cao tối đa để hiển thị thanh cuộn */
     border: 1px solid #ccc; /* Đường viền chỉ để minh họa */
     padding: 10px; /* Thêm padding cho phần tử cha */
     position: relative; /* Để xác định vị trí cho tiêu đề */
+    /* margin-left: 265px; */
+    margin-left: auto; /* Đặt margin trái thành tự động */
+    margin-right: auto;
 }
+
+.bill {
+    width: 750px;
+    height: 500px;
+    border: 1px solid #ccc;
+    margin-left: auto; /* Đặt margin trái thành tự động */
+    margin-right: auto;
+}
+
 
 .bill__item-title {
     margin-top: 0; /* Loại bỏ margin trên đầu tiên */
@@ -83,45 +104,60 @@ h2{
 }
 
 .detail-one-product {
-    width: 700px; /* Chiều rộng của hình chữ nhật */
-    height: 60px; /* Chiều cao của hình chữ nhật */
+    width: 650px; /* Chiều rộng của hình chữ nhật */
+    height: 45px; /* Chiều cao của hình chữ nhật */
     background-color: rgb(195, 251, 195);
     border-radius: 20px; /* Độ cong của các góc */
     margin-left: auto; /* Đặt margin trái thành tự động */
     margin-right: auto; /* Đặt margin phải thành tự động */
     margin-bottom: 30px;
     display: grid; /* Sử dụng CSS Grid */
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* Chia cột thành 3 phần bằng nhau */
+    grid-template-columns: 1fr 1fr 1fr; /* Chia cột thành 3 phần bằng nhau */
     justify-items: center; /* Canh các phần tử theo chiều ngang */
     gap: 10px; /* Khoảng cách giữa các phần tử */
     align-items: center; /* Căn các phần tử theo trục dọc */
 }
-.header-detail-one-product {
-    width: 760px; /* Chiều rộng của hình chữ nhật */
-    height: 50px; /* Chiều cao của hình chữ nhật */
+.header-detail-one-product .product__details {
+    width: 650px; /* Chiều rộng của hình chữ nhật */
+    height: 45px; /* Chiều cao của hình chữ nhật */
     background-color: rgb(195, 251, 195);
     border-radius: 20px; /* Độ cong của các góc */
     margin-left: auto; /* Đặt margin trái thành tự động */
     margin-right: auto; /* Đặt margin phải thành tự động */
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     display: grid; /* Sử dụng CSS Grid */
-    grid-template-columns: 0.5fr 1fr 1fr; /* Chia cột thành 3 phần bằng nhau */
+    grid-template-columns: 1fr 1fr 1fr; /* Chia cột thành 3 phần bằng nhau */
     justify-items: center; /* Canh các phần tử theo chiều ngang */
-    /* gap: 10px; Khoảng cách giữa các phần tử */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
     align-items: center; /* Căn các phần tử theo trục dọc */
 }
 
+
+
 .header-detail-one-product {
-    display: flex; /* Sử dụng Flexbox */
+    display: flex; 
 }
 
 .product__details {
     display: flex; /* Sử dụng Flexbox */
 }
 
-.product__details h2 {
-    /* margin-right: 100px; Tạo khoảng cách giữa các phần tử */
-    margin-left: 100px;
+.readonly-input {
+    border: none; /* Remove the border */
+    font-size: 1.3rem; /* Set the font size */
+    background-color: transparent; /* Make the background transparent */
+    color: inherit; /* Inherit the text color from the parent element */
+    pointer-events: none; /* Disable pointer events */
+    outline: none; /* Remove the focus outline */
+    width: 200px;
 }
+
+.readonly-input:focus {
+    outline: none; /* Ensure no outline on focus */
+    border: none; /* Ensure no border on focus */
+}
+
+
+
 
 

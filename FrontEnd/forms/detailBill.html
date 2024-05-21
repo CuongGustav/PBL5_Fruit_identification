@@ -10,7 +10,7 @@
     <style>
         /* Thu nhỏ kích thước của tất cả các phần tử trong frame */
         body {
-            zoom: 88%; /* Thay đổi tỷ lệ zoom */
+            zoom: 95%; /* Thay đổi tỷ lệ zoom */
         }
     </style>
 </head>
@@ -18,36 +18,45 @@
    
     <form action="/PBL5_Fruit_identification/BackEnd/Controller/C_StoreFruit.php" method="get">
         <div class="bill__item col-four">
-            <div class="bill__item-content">
-                <h1 class="">Hóa Đơn</h1>
-                <h2 class="bill__item-id" >Mã Hóa Đơn:
-                     <input type="text" name="idBill" value="<?php echo $ID_Bill; ?>" style="border: none; font-size: 1.3rem;" readonly>
-                    </h2>
-                <h2 class="bill__item-name">Nhân Viên: 
-                    <input type="text" name="namrStaff" value="<?php echo $Name_Staff; ?>" style="border: none; font-size: 1.3rem;" readonly>
-                </h2>
-                <h2 class="bill__item-date">Ngày: 
-                    <input type="text" name="dateTime" value="<?php echo $DateTime; ?>" style="border: none; font-size: 1.3rem;" readonly>
-                </h2>
-            </div>
-            <h1 class="">Danh Sách Sản Phẩm</h1>
-            <div class="header-detail-one-product">
-                <div class="product__details">
-                    <h2 class="product__item-name">Tên</h2>
-                    <h2 class="product__item-Weighed">Cân nặng</h2>
-                    <h2 class="product__item-price">Tiền</h2>
-                </div>
-            </div>
-            <div class="bill__item-list-product" style="overflow: scroll;">
-                <div id="productList">
-                </div>
-            </div>
-            <div class="bill__item-content">
-                <h2>Tổng:
-                    <div id="total"  style="display: inline-block; margin-left: 10px;">
+            <h1 class="">Hóa Đơn</h1>
+            <div class="container">
+                <div class="bill__item-content">
                     
+                    <h2 class="bill__item-id" >Mã Hóa Đơn:
+                         <input type="text" name="idBill" value="<?php echo $ID_Bill; ?>" class="readonly-input" readonly>
+                        </h2>
+                    <h2 class="bill__item-name">Nhân Viên: 
+                        <input type="text" name="namrStaff" value="<?php echo $Name_Staff; ?>" class="readonly-input" readonly>
+                    </h2>
+                    <h2 class="bill__item-date">Ngày: 
+                        <input type="text" name="dateTime" value="<?php echo $DateTime; ?>"  class="readonly-input" readonly>
+                    </h2>
+
+                    <h2>Tổng:
+                        <div id="total"  style="display: inline-block; margin-left: 10px;">
+                        
+                        </div>
+                    </h2>
+                </div>
+                <div class="bill">
+                    <h1 class="">Danh Sách Sản Phẩm</h1>
+                    <div class="header-detail-one-product">
+                        <div class="product__details">
+                            <h2 class="product__item-name">Tên</h2>
+                            <h2 class="product__item-Weighed">Cân nặng</h2>
+                            <h2 class="product__item-price">Tiền</h2>
+                        </div>
                     </div>
-                </h2>
+                    <div class="bill__item-list-product" style="overflow: scroll;">
+                        <div id="productList">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="bill__item-content">
+                
 
                 <div class="bill__item-button">
                     <button type="submit" class="bill__item-see" name="paymentBill" id="paymentBill" value="">Thanh Toán</button>
@@ -74,7 +83,7 @@
                                     html += '<h2 class="product__item-Weighed">' + product.Weighed + '</h2>';
                                     html += `<h2 class="product__item-price">${product.Price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h2>`;
                                     html += '<div class="product__item-button">';
-                                    html += '<button type="submit" class="product__item-cancel" name="cancelProduct" value="">Hủy</button>';
+                                    //html += '<button type="submit" class="product__item-cancel" name="cancelProduct" value="">Hủy</button>';
                                     html += '</div>';
                                     html += '</div>';
                                 $('#productList').append(html);

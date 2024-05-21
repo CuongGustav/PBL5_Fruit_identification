@@ -11,11 +11,14 @@
 <body>
     <form action="/PBL5_Fruit_identification/BackEnd/Controller/C_StoreFruit.php" method="get">
             <div class="account__item col-four"> 
-                <div class="account__item-content">
+                <div>
                     <h1>
                         THÔNG TIN CÁ NHÂN
                     </h1>
-                    <div></div>
+                </div>
+                <div class="account__item-content">
+                    
+                   
                     <h2 class="">Họ Và Tên:</h2>
                     <?php
                         echo '<input type="text" name="new_Name" value="'. $DetailAccount[0]->FullName .'">';
@@ -34,9 +37,10 @@
                     <?php
                         echo '<input type="text" name="new_Password" value="'. $DetailAccount[0]->PassWord.'">';
                     ?>
-                    <div class="account__item-button">
-                        <button type="submit" class="account__item-update" name="ok_Account">Cập nhật</button>
-                    </div>
+                    
+                </div>
+                <div class="account__item-button">
+                    <button type="submit" class="account__item-update" name="ok_Account">Cập nhật</button>
                 </div>
             </div>
     </form>
