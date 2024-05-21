@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../FrontEnd/assets/css/listBill.css">
+    <link rel="stylesheet" href="../../FrontEnd/assets/fonts/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/PBL5_Fruit_identification/BackEnd/Controller/C_StoreFruit.php" method="get">
+        <h1>DANH SÁCH HÓA ĐƠN</h1>
+        </br>
+        <?php
+        if (empty($list_bill)) {
+            echo 'dsds';
+        } else {
+            for($i = 1; $i <= sizeof($list_bill); $i++){
+        ?>
+        <div class="bill__item col-four">
+            <div class="bill__item-content">
+                <h1 class=""> Hóa Đơn </h1>
+                <h2 class="bill__item-id">Mã Hóa Đơn: <?php echo $list_bill[$i]->ID_Bill; ?></h2>
+                <h2 class="bill__item-name">Tên Nhân Viên: <?php echo $list_bill[$i]->Name_Staff; ?> </h2>
+                <h2 class="bill__item-date">Ngày: <?php echo $list_bill[$i]->Date; ?> </h2>
+                <h2 class="bill__item-total">Tổng: <?php echo number_format($list_bill[$i]->Total, 0, ',', '.') . " VND"; ?></h2>
+                <div class="bill__item-button">
+                    <button type="submit" class="bill__item-see" name="seeBill" value="<?php echo $list_bill[$i]->ID_Bill; ?>">Xem</button>
+                </div>
+            </div>
+        </div>
+        <?php
+}
+}
+?>
+    </form>
+</body>
+</html>

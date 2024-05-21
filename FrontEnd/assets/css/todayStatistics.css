@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #b4f1d0;
+    display: flex;               /* Sử dụng flexbox */
+    justify-content: center;     /* Căn giữa container theo chiều ngang */
+    align-items: center;         /* Căn giữa container theo chiều dọc */
+    min-height: 100vh;           /* Đặt chiều cao tối thiểu cho body */
+}
+
+.container {
+    display: flex;               /* Sử dụng flexbox */
+    flex-direction: row;         /* Sắp xếp các phần tử theo hàng ngang */
+    justify-content: center;     /* Căn giữa các phần tử theo chiều ngang */
+    align-items: center;         /* Căn giữa các phần tử theo chiều dọc */
+    gap: 50px;                   /* Khoảng cách giữa các phần tử */
+}
+
+.bill{
+    display: flex;                /* Sử dụng flexbox */
+    align-items: center;          /* Căn giữa các phần tử theo chiều dọc */
+    gap: 30px;   
+    width: 300px;
+    height: 120px;
+    padding: 1.5rem;
+    border: 1px solid #f49131;
+    border-radius: 1rem;
+    background: #de2d12;
+    box-shadow: 0 0 10px rgba(225, 29, 11, 0.8);
+    margin-right: 50px;
+}
+
+.bill img {
+    /* margin-left: 25px; */
+    width: 70px;
+    height: 70px;
+ 
+}
+
+.total{
+    display: flex;                /* Sử dụng flexbox */
+    align-items: center;          /* Căn giữa các phần tử theo chiều dọc */
+    gap: 10px;    
+    width: 300px;
+    height: 120px;
+    padding: 1.5rem;
+    border: 1px solid #4beb00;
+    border-radius: 1rem;
+    background: #04ca39;
+    box-shadow: 0 0 10px rgba(11, 175, 47, 0.8);
+    margin-right: 50px;
+}
+
+.total img {
+    width: 60px;
+    height: 60px;
+}
+
+
+
+.weight {
+    display: flex;                /* Sử dụng flexbox */
+    align-items: center;          /* Căn giữa các phần tử theo chiều dọc */
+    gap: 30px;    
+    width: 300px;
+    height: 120px;
+    padding: 1.5rem;
+    border: 1px solid #ecd806;
+    border-radius: 1rem;
+    background: #e9fe04;
+    box-shadow: 0 0 10px rgba(165, 187, 0, 0.8);
+    margin-right: 50px;
+}
+
+.weight img {
+    /* margin-left: 25px; */
+    width: 70px;
+    height: 70px;
+}

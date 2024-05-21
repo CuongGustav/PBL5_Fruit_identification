@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../FrontEnd/assets/css/listStaff.css">
+    <link rel="stylesheet" href="../../FrontEnd/assets/fonts/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/PBL5_Fruit_identification/BackEnd/Controller/C_StoreFruit.php" method="get">
+    <h1>DANH SÁCH NHÂN VIÊN</h1>
+</br>
+<?php
+if (empty($allStaff)) {
+    echo '';
+} else {
+    for($i = 1; $i <= sizeof($allStaff); $i++){
+?>
+<div class="staff__item col-four">
+<div class="staff__item-content">
+    <h1 class="staff__item-id">Nhân Viên </h1>
+    <h2 class="staff__item-id">ID: <?php echo $allStaff[$i]->ID; ?> </h2>
+    <h2 class="staff__item-name">Họ Tên: <?php echo $allStaff[$i]->FullName; ?> </h2>
+    <h2 class="staff__item-email">Email: <?php echo $allStaff[$i]->Email; ?> </h2>
+    <div class="staff__item-button">
+        <!-- <button type="submit" class="staff__item-update" name="updateupdateStaff" value="<?php echo $allStaff[$i]->ID; ?>">Cập nhật</button> -->
+        <button type="submit" class="staff__item-delete" name="deldelStaff" value="<?php echo $allStaff[$i]->ID; ?>">Xóa</button>
+    </div>
+</div>
+</div>
+<?php
+}
+}
+?>
+</form>
+
+    
+</body>
+</html>

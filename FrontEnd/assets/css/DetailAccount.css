@@ -1,0 +1,65 @@
+body{
+    background-color: rgb(195, 251, 195);
+    margin-top: 10%;
+    text-align: center;
+}
+
+.col-four{
+    width: 30%; 
+}
+
+.clear{
+    clear: both;
+}
+.account__item {
+    display: inline-block;
+    background-color: #fff;
+    margin: 10px; 
+    width: calc(40% - 20px); 
+    border-radius: 8px;
+    box-shadow: 2px 0 0 rgb(245, 245, 179);
+}
+.account__item-button{
+    margin: 16px 70px;
+    
+  
+}
+.account__item-content{
+    padding: 30px;
+}
+h1{
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+}
+h2{
+    margin-top: 16px;
+    margin-left: 40px;
+    font-size: 2rem;
+    font-weight: 500; 
+    text-align: left;
+
+    
+}
+.account__item-content input[type="text"] {
+   margin: 10px;
+   font-size: 16px;
+   width: 250px; /* Chiều rộng mới */
+   height: 40px; /* Chiều cao mới */
+}
+
+.account__item-button button {
+    font-size: 2rem;
+    padding: 8px;
+    margin-right: 10px;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(195, 251, 195);
+    border-radius: 4px;
+
+}
+.account__item-button button:hover{
+    background-color: rgb(245, 245, 179);
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../FrontEnd/assets/css/todayStatistics.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Thu nhỏ kích thước của tất cả các phần tử trong frame */
+        body {
+            zoom: 85%; /* Thay đổi tỷ lệ zoom */
+        }
+    </style>
+</head>
+<body>
+    <form action="/PBL5_Fruit_identification/BackEnd/Controller/C_StoreFruit.php" method="get">
+        <div class="container">
+            <div class="total">
+                <div>
+                    <h1>Doanh Thu</h1>
+                    <div id="total1">
+                        
+                    </div>
+                    
+                </div>
+                <img src="../../FrontEnd/assets/img/price-tag.png" alt="">
+            </div>
+    
+            <div class="weight">
+                <div>
+                    <h1>Cân Nặng</h1>
+                    <div id="weight1">
+                        
+                    </div>
+                </div>
+                <img src="../../FrontEnd/assets/img/weight.png" alt="">
+               
+            </div>
+    
+            <div class="bill">
+                <div>
+                    <h1>Hóa Đơn</h1>
+                    <div id="bill1">
+                        
+                    </div>
+                </div>
+                <img src="../../FrontEnd/assets/img/bill.png" alt="">
+                
+            </div>
+    
+    
+        </div>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            function updateProductList() {
+                $.ajax({
+                    url: '../../BackEnd/Controller/receiveToday.php',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        // Update the element with id 'total1' with the total for today
+                        $('#total1').empty();
+                        $('#total1').append('<h2>' + response.totalToday.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) + '</h2>');
+                        
+                        $('#weight1').empty();
+                        $('#weight1').append('<h2>' + response.totalWeigh + ' Kg</h2>');
+                      
+                        $('#bill1').empty();
+                        $('#bill1').append('<h2>' + response.totalBill + '</h2>');
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Có lỗi khi gửi yêu cầu: ' + error);
+                    }
+                });
+            }
+            updateProductList();
+            // Uncomment the next line to update the list periodically
+            // setInterval(updateProductList, 10000); // Update every 10 seconds
+        });
+    </script>
+    
+    
+    
+    
+</body>
+</html>

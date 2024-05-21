@@ -1,0 +1,66 @@
+body{
+    background-color: rgb(195, 251, 195);
+}
+
+.col-four{
+    width: 25%;
+}
+
+.clear{
+    clear: both;
+}
+
+.bill__list{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+
+.bill__item {
+    display: inline-block;
+    background-color: #fff;
+    margin: 15px; 
+    width: calc(30% - 20px); 
+    border-radius: 8px;
+    box-shadow: 2px 0 0 rgb(245, 245, 179);
+    margin-left: 40px;
+}
+
+.bill__item-content{
+    padding: 16px;
+}
+
+h1{
+    font-size: 2rem;
+    text-align: center;
+}
+h2{
+    margin-top: 16px;
+    font-size: 1.5rem;
+    font-weight: 500; 
+}
+
+.bill__item-button {
+    display: flex;
+    justify-content: center; /* căn giữa theo chiều ngang */
+    align-items: center; /* căn giữa theo chiều dọc */
+    margin-top: 16px;
+    margin-left: 32px;
+}
+
+.bill__item-button button {
+    font-size: 20px;
+    padding: 8px;
+    margin-right: 10px;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(195, 251, 195);
+    border-radius: 4px;
+}
+
+.bill__item-button button:hover {
+    background-color: rgb(245, 245, 179);
+}
+
