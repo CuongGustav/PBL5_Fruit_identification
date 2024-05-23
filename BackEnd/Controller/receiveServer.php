@@ -33,6 +33,8 @@
         'quyt' => 'Quýt',
         'tao' => 'Táo',
         'thom' => 'Thơm',
+        'oi' => 'Ổi',
+        'thanh long' => 'Thanh Long',
         'xoai' => 'Xoài'
     );
     $getprice = new Model_StoreFruit();
