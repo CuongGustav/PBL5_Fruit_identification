@@ -1,0 +1,70 @@
+body{
+    background-color: rgb(195, 251, 195);
+}
+
+.col-four{
+    width: 25%;
+}
+
+.clear{
+    clear: both;
+}
+
+.staff__list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.staff__item {
+    display: inline-block;
+    background-color: #fff;
+    margin: 15px; 
+    width: calc(30% - 20px); 
+    border-radius: 8px;
+    box-shadow: 2px 0 0 rgb(245, 245, 179);
+}
+
+
+.staff__item-img{
+    max-width: 100%; /* Hình ảnh sẽ không vượt quá kích thước của div */
+    height: auto; /* Đảm bảo tỉ lệ khung hình được bảo toàn */
+}
+.staff__item-img:hover{
+    opacity: 0.7;
+}
+
+.staff__item-content{
+    padding: 16px;
+}
+
+h1{
+    font-size: 2rem;
+    /* font-weight: 600; */
+    text-align: center;
+}
+h2{
+    margin-top: 16px;
+    font-size: 1.5rem;
+    font-weight: 500; 
+}
+
+.staff__item-button{
+    margin-top: 16px;
+    margin-left: 32px;
+}
+
+.staff__item-button button {
+    font-size: 20px;
+    padding: 8px;
+    margin-right: 10px;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(195, 251, 195);
+    border-radius: 4px;
+
+}
+.staff__item-button button:hover{
+    background-color: rgb(245, 245, 179);
+}

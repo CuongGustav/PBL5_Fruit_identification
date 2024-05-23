@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bar Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../../FrontEnd/assets/css/chart.css">
+    <style>
+        /* Thu nhỏ kích thước của tất cả các phần tử trong frame */
+        body {
+            zoom: 88%; /* Thay đổi tỷ lệ zoom */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="input-container">
+            <input type="month" id="monthInput">
+            <h1>THỐNG KÊ THEO THÁNG</h1>
+        </div>
+       
+        <div class="chart-container">
+            <div class="chart">
+                <canvas id="barChart" width="900" height="400"></canvas>
+            </div>
+    
+            <div class="chart">
+                <canvas id="doughnut" width="400" height="350"></canvas>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    <script>
+       document.addEventListener("DOMContentLoaded", function() {
+        const today = new Date();
+        const currentMonth = (today.getMonth() + 1).toString().padStart(2, '0'); // +1 vì tháng bắt đầu từ 0
+        const currentYear = today.getFullYear().toString();
+        const input = document.getElementById('monthInput');
+        input.value = `${currentYear}-${currentMonth}`;
+        input.addEventListener('change', function() {
+        const selectedDate = input.value;
+        const selectedMonth = selectedDate.substring(5, 7);
+        const selectedYear = selectedDate.substring(0, 4);
+
+        fetch(`../../BackEnd/Controller/receiveMonths.php?month=${selectedMonth}&year=${selectedYear}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error(data.error);
+                    return;
+                }
+
+                const labels = Object.keys(data).map(day => `Day ${new Date(day).getDate()}`);
+                const values = Object.values(data);
+                const ctx = document.getElementById('barChart').getContext('2d');
+                
+                if (document.getElementById('barChart') !== null) {
+                    const ctx = document.getElementById('barChart').getContext('2d');
+                    const existingChart = Chart.getChart(ctx);
+                    if (existingChart) {
+                        existingChart.destroy();
+                    }
+                }
+
+                window.myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Total Price',
+                            data: values,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        });
+
+        input.dispatchEvent(new Event('change'));
+        });
+
+    </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const today = new Date();
+                const currentMonth = (today.getMonth() + 1).toString().padStart(2, '0'); // +1 vì tháng bắt đầu từ 0
+                const currentYear = today.getFullYear().toString();
+                const input = document.getElementById('monthInput');
+                input.value = `${currentYear}-${currentMonth}`;
+                input.addEventListener('change', function() {
+                const selectedDate = input.value;
+                const selectedMonth = selectedDate.substring(5, 7);
+                const selectedYear = selectedDate.substring(0, 4);
+
+                fetch(`../../BackEnd/Controller/receiveDataTop5.php?month1=${selectedMonth}&year1=${selectedYear}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error(data.error);
+                        return;
+                    }
+
+                        const labels = Object.keys(data);
+                        const values = Object.values(data);
+
+                        if (document.getElementById('doughnut') !== null) {
+                            const ctx = document.getElementById('doughnut').getContext('2d');
+                            const existingChart = Chart.getChart(ctx);
+                            if (existingChart) {
+                                existingChart.destroy();
+                            }
+                        }
+
+                        const backgroundColors = [
+                            'rgba(255, 99, 132, 0.2)', // Đỏ
+                            'rgba(54, 162, 235, 0.2)', // Xanh dương
+                            'rgba(255, 206, 86, 0.2)', // Vàng
+                            'rgba(75, 192, 192, 0.2)', // Xanh lá
+                            'rgba(153, 102, 255, 0.2)' // Tím
+                        ];
+
+                        const borderColor = 'rgba(255, 99, 132, 1)'; // Màu đỏ đậm cho viền
+
+                        const ctx = document.getElementById('doughnut').getContext('2d');
+                        const myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    label: 'Total Price',
+                                    data: values,
+                                    backgroundColor: backgroundColors,
+                                    borderColor: borderColor,
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            });
+            input.dispatchEvent(new Event('change'));
+            });
+        </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const today = new Date();
+            const month = (today.getMonth() + 1).toString().padStart(2, '0'); // +1 vì tháng bắt đầu từ 0
+            const year = today.getFullYear().toString();
+            const formattedDate = `${year}-${month}`;
+            document.getElementById('monthInput').value = formattedDate;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(195, 251, 195);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for the account information */
+.account__item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* margin: 20px auto; */
+    max-width: 600px;
+    padding: 20px;
+    margin-left: auto; /* Đặt margin trái thành tự động */
+    margin-right: auto;
+
+}
+
+/* Header */
+.account__item h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Labels */
+.account__item-content h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Input fields */
+.account__item-content input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Button styles */
+.account__item-button {
+    text-align: center;
+}
+
+.account__item-button .account__item-update {
+    background-color: rgb(195, 251, 195);
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.account__item-button .account__item-update:hover {
+    background-color: rgb(245, 245, 179);
+}

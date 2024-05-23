@@ -1,0 +1,163 @@
+body{
+    background-color: rgb(195, 251, 195);
+}
+
+.col-four{
+    width: 25%;
+}
+
+.clear{
+    clear: both;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center;
+    justify-content: center; */
+    gap: 20px;
+}
+
+.bill__item {
+    display: inline-block;
+    background-color: #fff;
+    width: calc(90% - 20px); /* width - margin */
+    height: 700px;
+    border-radius: 8px;
+    box-shadow: 2px 0 0 rgb(245, 245, 179);
+    margin: auto; /* căn giữa theo chiều ngang */
+    position: absolute; /* Đặt phần tử ở chế độ tuyệt đối */
+    top: 50%; /* Đưa phần tử lên trên 50% của trang */
+    left: 50%; /* Đưa phần tử sang phải 50% của trang */
+    transform: translate(-50%, -50%); /* Dịch chuyển phần tử đi 50% của chính nó theo cả hai chiều */
+}
+
+
+.bill__item-content{
+    padding: 16px;
+}
+
+h1{
+    font-size: 2rem;
+    text-align: center;
+}
+h2{
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: 500; 
+}
+
+.bill__item-button {
+    display: flex;
+    justify-content: center; /* căn giữa theo chiều ngang */
+    align-items: center; /* căn giữa theo chiều dọc */
+    margin-top: 16px;
+    margin-left: 32px;
+}
+
+.bill__item-button button {
+    font-size: 20px;
+    padding: 8px;
+    margin-right: 10px;
+    width: 150px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(195, 251, 195);
+    border-radius: 4px;
+}
+
+.bill__item-button button:hover {
+    background-color: rgb(245, 245, 179);
+}
+
+.bill__item-list-product {
+    max-width: 700px;
+    overflow: auto; /* Kích hoạt thanh cuộn */
+    max-height: 300px; /* Đặt chiều cao tối đa để hiển thị thanh cuộn */
+    border: 1px solid #ccc; /* Đường viền chỉ để minh họa */
+    padding: 10px; /* Thêm padding cho phần tử cha */
+    position: relative; /* Để xác định vị trí cho tiêu đề */
+    /* margin-left: 265px; */
+    margin-left: auto; /* Đặt margin trái thành tự động */
+    margin-right: auto;
+}
+
+.bill {
+    width: 750px;
+    height: 500px;
+    border: 1px solid #ccc;
+    margin-left: auto; /* Đặt margin trái thành tự động */
+    margin-right: auto;
+}
+
+
+.bill__item-title {
+    margin-top: 0; /* Loại bỏ margin trên đầu tiên */
+    position: sticky; /* Thiết lập tiêu đề để đứng yên */
+    top: 0; /* Đặt vị trí đứng yên ở đầu phần tử cha */
+    background-color: #fff; /* Để làm cho nền của tiêu đề trở nên trong suốt */
+    z-index: 1; /* Đảm bảo tiêu đề hiển thị trên các phần tử khác */
+}
+
+.bill__item-container {
+    width: 100%; /* Đảm bảo rằng nội dung sẽ không tràn ra ngoài */
+}
+
+.detail-one-product {
+    width: 650px; /* Chiều rộng của hình chữ nhật */
+    height: 45px; /* Chiều cao của hình chữ nhật */
+    background-color: rgb(195, 251, 195);
+    border-radius: 20px; /* Độ cong của các góc */
+    margin-left: auto; /* Đặt margin trái thành tự động */
+    margin-right: auto; /* Đặt margin phải thành tự động */
+    margin-bottom: 30px;
+    display: grid; /* Sử dụng CSS Grid */
+    grid-template-columns: 1fr 1fr 1fr; /* Chia cột thành 3 phần bằng nhau */
+    justify-items: center; /* Canh các phần tử theo chiều ngang */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+    align-items: center; /* Căn các phần tử theo trục dọc */
+}
+.header-detail-one-product .product__details {
+    width: 650px; /* Chiều rộng của hình chữ nhật */
+    height: 45px; /* Chiều cao của hình chữ nhật */
+    background-color: rgb(195, 251, 195);
+    border-radius: 20px; /* Độ cong của các góc */
+    margin-left: auto; /* Đặt margin trái thành tự động */
+    margin-right: auto; /* Đặt margin phải thành tự động */
+    margin-bottom: 5px;
+    display: grid; /* Sử dụng CSS Grid */
+    grid-template-columns: 1fr 1fr 1fr; /* Chia cột thành 3 phần bằng nhau */
+    justify-items: center; /* Canh các phần tử theo chiều ngang */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+    align-items: center; /* Căn các phần tử theo trục dọc */
+}
+
+
+
+.header-detail-one-product {
+    display: flex; 
+}
+
+.product__details {
+    display: flex; /* Sử dụng Flexbox */
+}
+
+.readonly-input {
+    border: none; /* Remove the border */
+    font-size: 1.3rem; /* Set the font size */
+    background-color: transparent; /* Make the background transparent */
+    color: inherit; /* Inherit the text color from the parent element */
+    pointer-events: none; /* Disable pointer events */
+    outline: none; /* Remove the focus outline */
+    width: 200px;
+}
+
+.readonly-input:focus {
+    outline: none; /* Ensure no outline on focus */
+    border: none; /* Ensure no border on focus */
+}
+
+
+
+
+
