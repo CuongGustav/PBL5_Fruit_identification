@@ -35,8 +35,11 @@
 // ===========================
 // Enter your WiFi credentials
 // ===========================
-const char* ssid = "AndroidAP_4644";
-const char* password = "11111111";
+// const char* ssid = "Gustav";
+// const char* password = "cuong2511";
+
+const char* ssid = "58/10 NGO SY LIEN";
+const char* password = "0358102223";
 
 void startCameraServer();
 void setupLedFlash(int pin);
