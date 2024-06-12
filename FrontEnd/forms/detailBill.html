@@ -77,18 +77,15 @@
                         $('#productList').empty();
                         if (response && response.products && response.products.length > 0) {
                             $.each(response.products, function(index, product) {
-                                // productsArray.push(product);
                                 var html = '<div class="detail-one-product">';
                                     html += '<h2 class="product__item-name">' + product.Name_Product + '</h2>';
-                                    html += '<h2 class="product__item-Weighed">' + product.Weighed + '</h2>';
+                                    html += '<h2 class="product__item-Weighed">' + product.Weighed + ' Kg</h2>';
                                     html += `<h2 class="product__item-price">${product.Price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h2>`;
                                     html += '<div class="product__item-button">';
-                                    //html += '<button type="submit" class="product__item-cancel" name="cancelProduct" value="">Hủy</button>';
                                     html += '</div>';
                                     html += '</div>';
                                 $('#productList').append(html);
                             });
-                            productsArray = response.products;
                         } else {
                             $('#productList').html('<p>Không có sản phẩm.</p>');
                             
@@ -103,27 +100,6 @@
             }
             updateProductList();
             setInterval(updateProductList, 100); 
-
-            $('#paymentBill').click(function() {
-                if (productsArray.length > 0) {
-                    console.log("Sending products:", productsArray);
-
-                    $.ajax({
-                        url: '../../BackEnd/Controller/receivedataButton.php',
-                        type: 'POST',
-                        contentType: 'application/json',
-                        data: JSON.stringify({ products: productsArray }),
-                        success: function(response) {
-                            console.log("Server response:", response);
-                        },
-                        error: function(xhr, status, error) {
-                            console.error('Có lỗi khi gửi yêu cầu: ' + error);
-                        }
-                    });
-                } else {
-                    console.log("Không có sản phẩm để gửi.");
-                }
-            });
         });
     </script>
   

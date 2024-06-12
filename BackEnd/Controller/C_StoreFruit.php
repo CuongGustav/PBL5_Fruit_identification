@@ -109,33 +109,40 @@
             }
             elseif(isset($_GET['paymentBill'])){
                 $modelBill = new Model_StoreFruit();
-                $total = 0;
-                if (isset($_SESSION['savedProducts'])) {
-                    $products = $_SESSION['savedProducts'];
-                    foreach ($products as $product) {
-                        $total = $total + $modelBill->getPrice($product['Name_Product']) * $product['Weighed'];
-                    }
-                    $modelBill->insertBill($_GET['idBill'], $_SESSION['id'], $_GET['dateTime'],  $total);
-                    $weigh_total = 0 ;
-                    foreach ($products as $product) {
-                        $weigh_total = $modelBill->getPrice($product['Name_Product']) * $product['Weighed'];
-                        $modelBill->insertShop_Cart($_GET['idBill'], $product['Name_Product'], $product['Weighed'],  $weigh_total);
-                    }
-                    
+                // $total = 0;
+                $url = 'http://localhost/PBL5_Fruit_identification/BackEnd/Controller/receiveServer.php';
+                $response = @file_get_contents($url); 
+                if ($response === FALSE) {
+                    die('Error occurred while fetching the data');
                 }
-                $modelmodelBill =  new Model_StoreFruit();
-                require('../Controller/requestServer.php');
-                $see_detailbill = $modelmodelBill->detail_bill($_GET['idBill']);
-                $listProduct_Shopping_Cart = $modelmodelBill->getAllProduct_Shopping_Cart($_GET['idBill']);
-                include_once("../../BackEnd/PDF/generatePDF.php");
-                // $maxIDBill = $modelmodelBill->getMaxIDBill();
-                // $ID_Bill =  $maxIDBill + 1;
-                // $Name_Staff = $_SESSION['nameStaff'];
-                // date_default_timezone_set('Asia/Ho_Chi_Minh');
-                // require('../Controller/requestServer.php');
-                // $time = strtotime('now');
-                // $DateTime = date("d-m-Y H:i:s", $time);
-                // include_once("../../FrontEnd/forms/detailBill.html");
+                $data = json_decode($response, true);
+                if (isset($data['products']) && isset($data['totalPrice'])) {
+                    $products = $data['products'];
+                    $totalPrice = $data['totalPrice'];
+                    $ID = $_GET['idBill'];
+                    $modelBill->insertBill($_GET['idBill'], $_SESSION['id'], $_GET['dateTime'],  $totalPrice);
+                    foreach ($products as $product) {
+                        $modelBill->insertShop_Cart($_GET['idBill'], $product['Name_Product'], $product['Weighed'], $product['Price']); 
+                    }
+                    $see_detailbill = $modelBill->detail_bill($_GET['idBill']);
+                    $listProduct_Shopping_Cart = $modelBill->getAllProduct_Shopping_Cart($_GET['idBill']);
+                    include_once('../../BackEnd/PDF/generatePDF.php');
+                    require('../Controller/requestServer.php');
+                } else {
+                    $modelmodelBill =  new Model_StoreFruit();
+                    $maxIDBill = $modelmodelBill->getMaxIDBill();
+                    if (empty($maxIDBill)){
+                        $ID_Bill =  102000;
+                    }
+                    else{
+                        $ID_Bill =  $maxIDBill + 1;
+                    }
+                    $Name_Staff = $_SESSION['nameStaff'];
+                    date_default_timezone_set('Asia/Ho_Chi_Minh'); // Đặt múi giờ cho Hồ Chí Minh
+                    $time = strtotime('now');
+                    $DateTime = date("d-m-Y H:i:s", $time);
+                    include_once("../../FrontEnd/forms/detailBill.html");
+                }
             }
             elseif(isset($_GET['seeBill'])){
                 $modelBill = new Model_StoreFruit();
@@ -178,6 +185,22 @@
                 $modelAccount = new Model_StoreFruit();
                 $allStaff = $modelAccount->getAllAccount_Staff();
                 include_once("../../FrontEnd/forms/ListStaff.html");
+            }
+            elseif(isset($_GET['cancelBill'])){
+                require('../Controller/requestServer.php');
+                $modelmodelBill =  new Model_StoreFruit();
+                $maxIDBill = $modelmodelBill->getMaxIDBill();
+                if (empty($maxIDBill)){
+                    $ID_Bill =  102000;
+                }
+                else{
+                    $ID_Bill =  $maxIDBill + 1;
+                }
+                $Name_Staff = $_SESSION['nameStaff'];
+                date_default_timezone_set('Asia/Ho_Chi_Minh'); // Đặt múi giờ cho Hồ Chí Minh
+                $time = strtotime('now');
+                $DateTime = date("d-m-Y H:i:s", $time);
+                include_once("../../FrontEnd/forms/detailBill.html");
             }
            
         }        

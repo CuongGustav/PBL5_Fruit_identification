@@ -477,9 +477,6 @@
             mysqli_close($link);
             return $total;
         }
-        
-
-
     } 
     
 ?>

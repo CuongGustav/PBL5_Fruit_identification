@@ -33,6 +33,8 @@
         'quyt' => 'Quýt',
         'tao' => 'Táo',
         'thom' => 'Thơm',
+        'oi' => 'Ổi',
+        'thanh long' => 'Thanh Long',
         'xoai' => 'Xoài'
     );
     $getprice = new Model_StoreFruit();
@@ -44,11 +46,11 @@
                 if ($key === $fruit['name']) {
                     $product = array(
                         'Name_Product' => $fruitArray[$key],
-                        'Weighed' => $fruit['weight'] / 1000,
-                        'Price' =>  $getprice->getPrice($fruitArray[$key]) * ($fruit['weight'] / 1000)
+                        'Weighed' => round($fruit['weight'] / 1000, 4),
+                        'Price' =>  $getprice->getPrice($fruitArray[$key]) * round($fruit['weight'] / 1000, 4)
                     );
                     $products[] = $product;
-                    $totalPrice = $totalPrice + $getprice->getPrice($fruitArray[$key]) * ($fruit['weight'] / 1000);
+                    $totalPrice = $totalPrice + $getprice->getPrice($fruitArray[$key]) * round($fruit['weight'] / 1000, 4);
                     break; 
                 }
             }
