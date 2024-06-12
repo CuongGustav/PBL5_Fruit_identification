@@ -101,15 +101,15 @@
                 else{
                     $ID_Bill =  $maxIDBill + 1;
                 }
-                $Name_Staff = $_SESSION['nameStaff'];
-                date_default_timezone_set('Asia/Ho_Chi_Minh'); // Đặt múi giờ cho Hồ Chí Minh
+                $DetailAccount = $modelmodelBill->detail_account_Login_id($_SESSION['id']);
+                $Name_Staff = $DetailAccount[0]->FullName;
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
                 $time = strtotime('now');
                 $DateTime = date("d-m-Y H:i:s", $time);
                 include_once("../../FrontEnd/forms/detailBill.html");
             }
             elseif(isset($_GET['paymentBill'])){
                 $modelBill = new Model_StoreFruit();
-                // $total = 0;
                 $url = 'http://localhost/PBL5_Fruit_identification/BackEnd/Controller/receiveServer.php';
                 $response = @file_get_contents($url); 
                 if ($response === FALSE) {
